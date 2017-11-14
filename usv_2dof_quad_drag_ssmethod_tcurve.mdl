@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [2040.0, 105.0, 1382.0, 744.0]
+      Location		      [51.0, 14.0, 1559.0, 1076.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -51,11 +51,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[1346.0, 566.0]
-	ZoomFactor		[1.75]
-	Offset			[-118.97150755494505, -16.282395570863287]
+	ViewObjType		"SimulinkSubsys"
+	LoadSaveID		"8"
+	Extents			[1505.0, 883.0]
+	ZoomFactor		[1.9117158977763025]
+	Offset			[46.861870659722172, 21.676736111111097]
       }
     }
   }
@@ -63,9 +63,9 @@ Model {
   Creator		  "bsb"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "bsb"
+  LastModifiedBy	  "aschnieders22"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Nov 13 13:44:41 2017"
+  LastModifiedDate	  "Tue Nov 14 09:38:48 2017"
   RTWModifiedTimeStamp	  432481441
   ModelVersionFormat	  "1.%<AutoIncrement:18>"
   ConfigurationManager	  "none"
@@ -1251,8 +1251,8 @@ Model {
   }
   System {
     Name		    "usv_2dof_quad_drag_ssmethod_tcurve"
-    Location		    [2040, 105, 3422, 849]
-    Open		    on
+    Location		    [51, 14, 1610, 1090]
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1335,8 +1335,8 @@ Model {
       Variant		      off
       System {
 	Name			"USV_Quad_Drag"
-	Location		[2040, 105, 3422, 849]
-	Open			off
+	Location		[51, 14, 1610, 1090]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1347,7 +1347,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"191"
 	Block {
 	  BlockType		  Inport
 	  Name			  "Thrust Cmd Port"
@@ -2238,10 +2238,7 @@ Stateflow {
     firstTransition	    10
     firstJunction	    9
     viewObj		    2
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -2426,10 +2423,7 @@ Stateflow {
     firstTransition	    20
     firstJunction	    19
     viewObj		    12
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
