@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.20"
+    ComputedModelVersion    "1.21"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "aschnieders22"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Nov 28 08:29:16 2017"
-  RTWModifiedTimeStamp	  433758553
-  ModelVersionFormat	  "1.%<AutoIncrement:20>"
+  LastModifiedDate	  "Tue Nov 28 14:36:14 2017"
+  RTWModifiedTimeStamp	  433761789
+  ModelVersionFormat	  "1.%<AutoIncrement:21>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1318,6 +1318,7 @@ Model {
       SID		      "55"
       Position		      [75, 55, 105, 85]
       ZOrder		      16
+      Gain		      "Kp"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
@@ -1332,7 +1333,6 @@ Model {
       NamePlacement	      "alternate"
       VariableName	      "surge"
       MaxDataPoints	      "inf"
-      SaveFormat	      "Timeseries"
       Save2DSignal	      "3-D array (concatenate along third dimension)"
       FixptAsFi		      on
       SampleTime	      "-1"
@@ -1369,6 +1369,7 @@ Model {
       SID		      "51"
       Position		      [30, 55, 60, 85]
       ZOrder		      11
+      Time		      "0"
       SampleTime	      "0"
     }
     Block {
@@ -2176,7 +2177,6 @@ Model {
       ZOrder		      20
       VariableName	      "time"
       MaxDataPoints	      "inf"
-      SaveFormat	      "Timeseries"
       Save2DSignal	      "3-D array (concatenate along third dimension)"
       FixptAsFi		      on
       SampleTime	      "-1"
