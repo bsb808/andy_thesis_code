@@ -1,0 +1,17 @@
+Gain = [1   10  100 1   1   1   1   1   1   1   1   1   1;
+        0   0   0   1   .01  .1 10  100 0   0   0   0   0;
+        0   0   0   0   0   0   0   0   1   .01 .1  10  100];
+    
+    for i=1:length(Gain)
+        Kp=Gain(1,i);Kd=Gain(2,i);Kd=Gain(3,i);
+        sim('USV_2DOF_SS_tcurve_YAW_wPID')
+        for j=1:length(yaw)
+            yaw_mat(i,j)=transpose(yaw(j));
+        end
+        for k=1:length(time)
+            time_mat(i,k)=transpose(time(k));
+        end
+    end
+
+    
+    plot(time_mat(1,:),yaw_mat(1,:))

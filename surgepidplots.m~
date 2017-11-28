@@ -1,0 +1,53 @@
+%% SURGE PID MODEL PLOTS
+
+subplot(5,1,1)
+plot(surge1)
+title('No Controller')
+xlabel('Time [s]')
+ylabel('Velocity [m/s]')
+grid on
+legend('Kp=0 Ki=0 Kd=0','location','nw')
+
+subplot(5,1,2)
+plot(surge2)
+hold on
+plot(surge21)
+plot(surge22)
+title('Proportional Controller')
+xlabel('Time [s]')
+ylabel('Velocity [m/s]')
+grid on
+legend('Kp=1','Kp=10','Kp=0.1','location','nw')
+
+subplot(5,1,3)
+plot(surge3)
+hold on
+plot(surge31)
+plot(surge32)
+title('PI Controller - Kp=1')
+xlabel('Time [s]')
+ylabel('Velocity [m/s]')
+grid on
+legend('Ki=1','Ki=10','Ki=0.1','location','nw')
+
+subplot(5,1,4)
+plot(surge4)
+hold on
+plot(surge41)
+plot(surge42)
+title('PD Controller - Kp=1')
+xlabel('Time [s]')
+ylabel('Velocity [m/s]')
+grid on
+legend('Kd=1','Kd=10','Kd=0.1','location','nw')
+
+subplot(5,1,5)
+plot(surge5)
+hold on
+plot(surge51)
+plot(surge52)
+title('PID Controller - Kp=1')
+xlabel('Time [s]')
+ylabel('Velocity [m/s]')
+grid on
+legend('Ki=1 Kd=1','Ki=1 Kd=10','Ki=1 Kd=.1','location','nw')
