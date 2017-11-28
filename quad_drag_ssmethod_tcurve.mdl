@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.16"
+    ComputedModelVersion    "1.17"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -53,7 +53,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1328.0, 551.0]
+	Extents			[1348.0, 599.0]
 	ZoomFactor		[1.75]
 	Offset			[-118.97150755494505, -16.282395570863287]
       }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "aschnieders22"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Nov 14 09:20:43 2017"
-  RTWModifiedTimeStamp	  432549889
-  ModelVersionFormat	  "1.%<AutoIncrement:16>"
+  LastModifiedDate	  "Tue Nov 28 08:16:55 2017"
+  RTWModifiedTimeStamp	  433757810
+  ModelVersionFormat	  "1.%<AutoIncrement:17>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1254,7 +1254,7 @@ Model {
   }
   System {
     Name		    "quad_drag_ssmethod_tcurve"
-    Location		    [59, 198, 1441, 942]
+    Location		    [49, 188, 1451, 980]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1307,7 +1307,7 @@ Model {
       BlockType		      Step
       Name		      "Step"
       SID		      "14"
-      Position		      [75, 75, 105, 105]
+      Position		      [120, 95, 150, 125]
       ZOrder		      9
       After		      ".4"
       SampleTime	      "0"
@@ -1331,7 +1331,7 @@ Model {
       Name		      "USV_Quad_Drag"
       SID		      "8"
       Ports		      [1, 1]
-      Position		      [230, 62, 325, 118]
+      Position		      [230, 82, 325, 138]
       ZOrder		      -14
       RequestExecContextInheritance off
       Variant		      off
@@ -1618,23 +1618,19 @@ Model {
       Points		      [33, 0]
       Branch {
 	ZOrder			19
-	Points			[0, 20]
-	Branch {
-	  ZOrder		  20
-	  Points		  [0, 60]
-	  DstBlock		  "To Workspace"
-	  DstPort		  1
-	}
-	Branch {
-	  ZOrder		  17
-	  DstBlock		  "Scope"
-	  DstPort		  1
-	}
+	Points			[0, -55]
+	DstBlock		"Display"
+	DstPort			1
       }
       Branch {
-	ZOrder			18
-	Points			[0, -35]
-	DstBlock		"Display"
+	ZOrder			20
+	Points			[0, 60]
+	DstBlock		"To Workspace"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			17
+	DstBlock		"Scope"
 	DstPort			1
       }
     }
