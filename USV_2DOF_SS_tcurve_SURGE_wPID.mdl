@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.31"
+    ComputedModelVersion    "1.32"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -51,21 +51,21 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1523.0, 842.0]
+	  Extents		  [1475.0, 612.0]
 	  ZoomFactor		  [3.1476152222865057]
-	  Offset		  [-20.975155509478753, -15.264920843559594]
+	  Offset		  [-20.975155509478753, -15.264920843559565]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "8"
-	  Extents		  [1493.0, 627.0]
-	  ZoomFactor		  [1.75]
-	  Offset		  [0.0, 0.0]
+	  Extents		  [1475.0, 612.0]
+	  ZoomFactor		  [1.7499999999999998]
+	  Offset		  [-5.6843418860808015e-14, 0.0]
 	}
 	PropName		"EditorsInfo"
       }
@@ -75,11 +75,11 @@ Model {
   Creator		  "bsb"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "bsb"
+  LastModifiedBy	  "aschnieders22"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Nov 15 09:50:47 2017"
-  RTWModifiedTimeStamp	  432639951
-  ModelVersionFormat	  "1.%<AutoIncrement:31>"
+  LastModifiedDate	  "Tue Nov 28 14:48:34 2017"
+  RTWModifiedTimeStamp	  433781305
+  ModelVersionFormat	  "1.%<AutoIncrement:32>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1335,7 +1335,7 @@ Model {
       Variant		      off
       System {
 	Name			"PID"
-	Location		[53, 27, 1612, 1053]
+	Location		[98, 184, 1627, 995]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1347,32 +1347,29 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"220"
+	ZoomFactor		"271"
 	Block {
 	  BlockType		  Inport
 	  Name			  "In1"
 	  SID			  "67"
-	  Position		  [355, 130, 370, 160]
+	  Position		  [15, 115, 30, 145]
 	  ZOrder		  25
-	  BlockMirror		  on
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Derivative
 	  Name			  "Derivative"
 	  SID			  "58"
-	  Position		  [170, 182, 215, 208]
+	  Position		  [120, 167, 165, 193]
 	  ZOrder		  18
-	  BlockMirror		  on
 	  CoefficientInTFapproximation "0"
 	}
 	Block {
 	  BlockType		  Gain
 	  Name			  "Derivative Gain"
 	  SID			  "63"
-	  Position		  [235, 185, 275, 205]
+	  Position		  [55, 170, 95, 190]
 	  ZOrder		  23
-	  BlockMirror		  on
 	  Gain			  "0"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1382,18 +1379,16 @@ Model {
 	  BlockType		  TransferFcn
 	  Name			  "Integrator"
 	  SID			  "55"
-	  Position		  [170, 133, 215, 157]
+	  Position		  [120, 118, 165, 142]
 	  ZOrder		  15
-	  BlockMirror		  on
 	  Denominator		  "[1 0]"
 	}
 	Block {
 	  BlockType		  Gain
 	  Name			  "Integrator Gain"
 	  SID			  "64"
-	  Position		  [235, 135, 275, 155]
+	  Position		  [55, 120, 95, 140]
 	  ZOrder		  24
-	  BlockMirror		  on
 	  Gain			  "0.5"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1403,9 +1398,8 @@ Model {
 	  BlockType		  Gain
 	  Name			  "Proportional Gain"
 	  SID			  "56"
-	  Position		  [235, 85, 275, 105]
+	  Position		  [55, 70, 95, 90]
 	  ZOrder		  16
-	  BlockMirror		  on
 	  Gain			  "2"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1416,8 +1410,9 @@ Model {
 	  Name			  "Scope"
 	  SID			  "70"
 	  Ports			  [3]
-	  Position		  [330, 19, 360, 51]
+	  Position		  [200, 14, 230, 46]
 	  ZOrder		  27
+	  NamePlacement		  "alternate"
 	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
 	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
 	  "','WiredSimulink',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configuration('Visuals','Time Domain',true,'S"
@@ -1433,7 +1428,7 @@ Model {
 	  "39215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509"
 	  "803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.65"
 	  "0980392156863])),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',t"
-	  "rue,'Version','2015b')),'Version','2015b','Position',[937 519 560 420],'VisibleAtModelOpen','on')"
+	  "rue,'Version','2015b')),'Version','2015b','Position',[937 519 560 420])"
 	  NumInputPorts		  "3"
 	}
 	Block {
@@ -1441,9 +1436,8 @@ Model {
 	  Name			  "Sum"
 	  SID			  "59"
 	  Ports			  [3, 1]
-	  Position		  [105, 73, 120, 217]
+	  Position		  [210, 58, 225, 202]
 	  ZOrder		  19
-	  BlockMirror		  on
 	  ShowName		  off
 	  Inputs		  "+++"
 	  InputSameDT		  off
@@ -1454,9 +1448,8 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Out1"
 	  SID			  "68"
-	  Position		  [35, 138, 65, 152]
+	  Position		  [260, 123, 290, 137]
 	  ZOrder		  26
-	  BlockMirror		  on
 	  NamePlacement		  "alternate"
 	  IconDisplay		  "Port number"
 	}
@@ -1475,83 +1468,83 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  3
-	  SrcBlock		  "Proportional Gain"
-	  SrcPort		  1
-	  Points		  [-56, 0]
-	  Branch {
-	    ZOrder		    12
-	    Points		    [0, -70]
-	    DstBlock		    "Scope"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    11
-	    DstBlock		    "Sum"
-	    DstPort		    1
-	  }
-	}
-	Line {
 	  ZOrder		  4
 	  SrcBlock		  "Derivative"
 	  SrcPort		  1
-	  Points		  [-20, 0]
+	  Points		  [14, 0]
 	  Branch {
-	    ZOrder		    16
-	    Points		    [0, -150]
+	    ZOrder		    64
+	    Points		    [0, -140]
 	    DstBlock		    "Scope"
 	    DstPort		    3
 	  }
 	  Branch {
-	    ZOrder		    15
+	    ZOrder		    63
 	    DstBlock		    "Sum"
 	    DstPort		    3
 	  }
 	}
 	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Integrator"
-	  SrcPort		  1
-	  Points		  [-13, 0]
-	  Branch {
-	    ZOrder		    14
-	    Points		    [0, -110]
-	    DstBlock		    "Scope"
-	    DstPort		    2
-	  }
-	  Branch {
-	    ZOrder		    13
-	    DstBlock		    "Sum"
-	    DstPort		    2
-	  }
-	}
-	Line {
-	  ZOrder		  6
+	  ZOrder		  51
 	  SrcBlock		  "Sum"
 	  SrcPort		  1
 	  DstBlock		  "Out1"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  7
-	  SrcBlock		  "In1"
+	  ZOrder		  52
+	  SrcBlock		  "Integrator"
 	  SrcPort		  1
-	  Points		  [-47, 0]
+	  Points		  [2, 0]
 	  Branch {
-	    ZOrder		    8
-	    Points		    [0, -50]
-	    DstBlock		    "Proportional Gain"
+	    ZOrder		    62
+	    Points		    [0, -100]
+	    DstBlock		    "Scope"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    61
+	    DstBlock		    "Sum"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  ZOrder		  53
+	  SrcBlock		  "Proportional Gain"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    ZOrder		    60
+	    Points		    [0, -60]
+	    DstBlock		    "Scope"
 	    DstPort		    1
 	  }
 	  Branch {
-	    ZOrder		    9
+	    ZOrder		    59
+	    DstBlock		    "Sum"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  54
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  Branch {
+	    ZOrder		    58
 	    Points		    [0, 50]
 	    DstBlock		    "Derivative Gain"
 	    DstPort		    1
 	  }
 	  Branch {
-	    ZOrder		    10
+	    ZOrder		    57
 	    DstBlock		    "Integrator Gain"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    56
+	    Points		    [-1, 0; 0, -50]
+	    DstBlock		    "Proportional Gain"
 	    DstPort		    1
 	  }
 	}
@@ -1579,8 +1572,7 @@ Model {
       "er',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647"
       "058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0."
       "0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration("
-      "'Tools','Measurements',true,'Version','2015b')),'Version','2015b','Position',[1227 375 550 362],'VisibleAtModelO"
-      "pen','on')"
+      "'Tools','Measurements',true,'Version','2015b')),'Version','2015b','Position',[1227 405 540 360])"
     }
     Block {
       BlockType		      Sum
@@ -1876,7 +1868,7 @@ Model {
 	  "der',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.71764705"
 	  "8823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.07450"
 	  "98039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools',"
-	  "'Measurements',true,'Version','2015b')),'Version','2015b','Position',[676 323 560 420],'VisibleAtModelOpen','on')"
+	  "'Measurements',true,'Version','2015b')),'Version','2015b','Position',[676 323 560 420])"
 	  NumInputPorts		  "2"
 	}
 	Block {
