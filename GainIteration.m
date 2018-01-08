@@ -7,7 +7,6 @@ data = csvread('tcurve_nohead.csv');
 breakpoints1=data(end:-1:1,1)';
 table_data = data(end:-1:1,2)';
 
-
 %%
 % Variable and Constant Initiation and Definition
 % Step Inputs
@@ -19,9 +18,9 @@ sim_time = 60; % Simulation Time
 
 %% 
 % Gain Matrix for Testing
-% Gain = [1   10  100 1   1   1   1   1   1   1   1   1   1   100 100 100 100 100;
-%         0   0   0   1   .01  .1 10  100 0   0   0   0   0   1   .01 .1  10  100;
-%         0   0   0   0   0   0   0   0   1   .01 .1  10  100 .01 .01 .01 .01 .01];
+Gain = [1   10  100 1   1   1   1   1   1   1   1   1   1   100 100 100 100 100;
+        0   0   0   1   .01  .1 10  100 0   0   0   0   0   1   .01 .1  10  100;
+        0   0   0   0   0   0   0   0   1   .01 .1  10  100 .01 .01 .01 .01 .01];
     
 Gain = [ 10 10 10 10;
          1 .01 .1 10;
