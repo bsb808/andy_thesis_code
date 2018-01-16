@@ -39,9 +39,10 @@ ss_des = 45;
 figure(1);
 clf;
 
-for i=1:1
+for i=1:length(Gain_S)
       Kps=Gain_S(1,i);Kis=Gain_S(2,i);Kds=Gain_S(3,i);
       j=1.533;
+      figure(i)
         for k=1:length(Gain_Y)
             Kpy=Gain_Y(1,k);Kiy=Gain_Y(2,k);Kdy=Gain_Y(3,k);
             sim('Coupled_USV_2DOF_SS_tcurve_wPID_FF_curves')
