@@ -26,7 +26,7 @@ table_data = data(end:-1:1,2)';
 % Step Inputs
 kfyaw=zeros(50);
 vo = 0.0; vf = 0.0; % Initial and Final Speed [m/s]
-yo = 0; yf=pi();    % Initial and Final Heading [rad]
+yo = 0; yf=pi/4;    % Initial and Final Heading [rad]
 drag_coeff=16.91; % Drag Coefficients
 switch_case = 0; % Binary Switch for Feed Forward. [0,1]
 % sim_time = 20; % Simulation Time
@@ -35,8 +35,8 @@ switch_case = 0; % Binary Switch for Feed Forward. [0,1]
 %% 
 %
 
-Kpy=.1;Kiy=.1;Kdy=.1;
+Kpy=1;Kiy=.01;Kdy=.1;
 % Kps=1;Kis=1;Kds=1;
-sim('EXP_Controller_YAW')
+sim('EXP_YAW_TEST')
 
 rosshutdown
