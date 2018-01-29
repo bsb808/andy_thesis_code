@@ -52,9 +52,9 @@ j=1.533;
 %         0   0   0   1   .01  .1 10  100 0   0   0   0   0   1   .01 .1  10  100;
 %         0   0   0   0   0   0   0   0   1   .01 .1  10  100 .01 .01 .01 .01 .01];
 %     
-Gain = [42 42 42;
-        .01 .01 .01;
-        10  15  20];
+Gain = [1 5 10 15;
+        .01 .01 .01 .01;
+        .5  .5 .5 .5];
 
 kfhdc = {};
 S = {};
@@ -84,6 +84,7 @@ end
 legend(['Kp=',num2str(Gain(1,1)),', Ki=',num2str(Gain(2,1)),', Kd=',num2str(Gain(3,1))], ... 
     ['Kp=',num2str(Gain(1,2)),', Ki=',num2str(Gain(2,2)),', Kd=',num2str(Gain(3,2))], ... 
     ['Kp=',num2str(Gain(1,3)),', Ki=',num2str(Gain(2,3)),', Kd=',num2str(Gain(3,3))], ... 
+    ['Kp=',num2str(Gain(1,4)),', Ki=',num2str(Gain(2,4)),', Kd=',num2str(Gain(3,4))], ... 
     'Location','se')
 xlabel('Time [s]')
 ylabel('Kingfisher Heading [deg]')
