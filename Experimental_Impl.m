@@ -24,7 +24,6 @@ table_data = data(end:-1:1,2)';
 %%
 % Variable and Constant Initiation and Definition
 % Step Inputs
-kfyaw=zeros(50);
 vo = 0.0; vf = 0.25; % Initial and Final Speed [m/s]
 yo = 0; yf=pi()/4;   % Initial and Final Heading [rad]
 drag_coeff=16.91; % Drag Coefficients
