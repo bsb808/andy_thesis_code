@@ -1,9 +1,9 @@
-%% Thesis Code Simulation Script
-%
+% Thesis Code Simulation Script
+
 clear all
 rosshutdown
 % 
-ROS Initialization
+% ROS Initialization
 
 % Location of the ROS Master
 URI='http://192.168.1.11:11311'
@@ -24,19 +24,20 @@ table_data = data(end:-1:1,2)';
 %%
 % Variable and Constant Initiation and Definition
 % Step Inputs
-vo = 1.25; vf = 1.5; % Initial and Final Speed [m/s]
-yo = 0; yf = 0;   % Initial and Final Heading [rad]
+vo = 1.25; vf = 1.25; % Initial and Final Speed [m/s]
+% yo = -1.9; yf = yo+(pi/4);   % Initial and Final Heading [rad]
+yo = pi+(-1.6-(pi/4)); yf = yo+(pi/4);   % Initial and Final Heading [rad]
 drag_coeff= 16.91 % Drag Coefficients. Original 16.91
-switch_case = 0; % Binary Switch for Feed Forward. [0,1]
+switch_case = 1; % Binary Switch for Feed Forward. [0,1]
 % sim_time = 20; % Simulation Time
 
 InitVar = [vo vf yo yf drag_coeff switch_case];
-%%
+% %%
+% 
+Kpy=50;  Kiy=0; Kdy=12; %% Yaw Gains
 
-Kpy=100;  Kiy=.01; Kdy=20; %% Yaw Gains
-
-Kps=12;  Kis=7;   Kds=.01; %% Surge Gains
-
+Kps=12;  Kis=7;   Kds=0; %% Surge Gains
+% 
 sim('EXP_Controller_Coupled')
 % sim('EXP_YAW_TEST')
 % sim('EXP_Controller_YAW')
@@ -46,7 +47,6 @@ sim('EXP_Controller_Coupled')
 % rg = 255;
 % C = {[186/rg 18/rg 18/rg],[22/rg 135/rg 0/rg],[252/rg 172/rg 0/rg],[0/rg 29/rg 255/rg]}; % Plot Color Array
 % j=1.533;
-
 
 
 figure(1);
@@ -109,6 +109,7 @@ grid on
 hold off
 
 figure(4);
+hold on
 plot(time,portcmd,time,stbdcmd)
 xlabel('Time [s]')
 ylabel('Motor Command [-1 to 1]')
@@ -117,9 +118,18 @@ legend('Port Command','Starboard Command','Location','se')
 grid on
 
 
+figure(5);
+hold on
+plot(time,surgeint)
+xlabel('Time [s]')
+ylabel('Integrator Effect]')
+title('Surge Integrator vs Time')
+legend('Integrator','Location','se')
+grid on
+
 Yaw_Gains = [Kpy Kiy Kdy];
 Surge_Gains = [Kps Kis Kds];
-save('14FEB_LakeTest_Run1','Surge_Gains','Yaw_Gains','time','yawcmd','kfhd' ... 
-    ,'srgcmd','kfspd','portcmd','stbdcmd','InitVar')
+save('14FEB_LakeTest_Run30','Surge_Gains','Yaw_Gains','time','yawcmd','kfhd' ... 
+    ,'srgcmd','kfspd','portcmd','stbdcmd','InitVar','surgeint')
 
 rosshutdown
