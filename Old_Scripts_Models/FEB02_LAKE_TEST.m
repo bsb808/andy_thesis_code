@@ -77,6 +77,6 @@ hold off
 Surge_Gains = [Kps Kis Kds];
 % YawMat = [time' kfhd' yawcmd'];
 SurgeMat = [time' srgcmd' kfspd'];
-save('02FEB_LakeTest_Run25','Surge_Gains','SurgeMat')
+save('14FEB_LakeTest_Run1','Surge_Gains','Yaw_Gains','time','yawcmd','kfhd','srgcmd','kfspd')
 
 rosshutdown
