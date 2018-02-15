@@ -1,0 +1,10 @@
+MInitVar{i}=InitVar';
+MSurgeGains{i}=Surge_Gains';
+MYawGains{i}=Yaw_Gains';
+MTime{i}=time';
+Mkfhd{i}=kfhd';
+Mkfspd{i}=kfspd';
+Mportcmd{i}=portcmd';
+Msrgcmd{i}=srgcmd';
+Mstbdcmd{i}=stbdcmd';
+Myawcmd{i}=yawcmd';
