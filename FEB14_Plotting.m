@@ -4,7 +4,7 @@
 %%
 % Cell Array Structure Creation for Data Runs
 
-load('Feb14_LakeTest_Compiled_Data_rev1.mat')
+load('Feb14_LakeTest_Compiled_Data.mat')
 
 % MInitVar{i}=InitVar';
 % MSurgeGains{i}=Surge_Gains';
@@ -25,12 +25,9 @@ load('Feb14_LakeTest_Compiled_Data_rev1.mat')
 
 figure(1);
 clf;
-
 for i=1:4
       time = MTime{i};
-      time = time(291:end)
       kfhd = Mkfhd{i};
-      kfhd = kfhd(291:end)
       yawcmd = Myawcmd{i};
       plot(time,kfhd,time,yawcmd)
       hold on
