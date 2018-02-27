@@ -26,7 +26,7 @@ load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 figure(1);
 clf;
 
-for i=10:11
+for i=14:16
       time = MTime{i};
       kfhd = abs(Mkfhd{i});
       yawcmd = abs(Myawcmd{i});
@@ -59,7 +59,7 @@ hold off
 % 
 figure(2);
 clf;
-for i=10:11
+for i=14:16
       time = MTime{i};
 %       srgcmd = Msrgcmd{i};
 %       kfspd = Mkfspd{i};
@@ -71,7 +71,7 @@ for i=10:11
       Msrgcmd{i}=srgcmd;
       hold on
       plot(time,srgcmd,time,kfspd)
-%       plot(time,kfspd)
+      plot(time,kfspd)
       grid on
 end
 xlabel('Time [s]')
