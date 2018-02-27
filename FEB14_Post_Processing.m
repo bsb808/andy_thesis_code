@@ -26,7 +26,7 @@ load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 figure(1);
 clf;
 
-for i=25:28
+for i=1:16
       time = MTime{i};
 %       kfhd = abs(Mkfhd{i});
 %       yawcmd = abs(Myawcmd{i});
@@ -60,7 +60,7 @@ hold off
 % 
 figure(2);
 clf;
-for i=25:28
+for i=1:16
       time = MTime{i};
       srgcmd = Msrgcmd{i};
       kfspd = Mkfspd{i};
@@ -80,8 +80,8 @@ title('Kingfisher Speed vs Command')
 % legend('10','11','Location','sw')
 hold off
 % % 
-clear i kfhd kfspd srgcmd time yawcmd ans
-save('Feb14_LakeTest_Compiled_Data_trimmed')
+% clear i kfhd kfspd srgcmd time yawcmd ans
+% save('Feb14_LakeTest_Compiled_Data_trimmed')
 
 
 
