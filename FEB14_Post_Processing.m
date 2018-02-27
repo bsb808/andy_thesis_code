@@ -4,7 +4,7 @@
 %%
 % Cell Array Structure Creation for Data Runs
 
-load('Feb14_LakeTest_Compiled_Data_rev1.mat')
+load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 
 % MInitVar{i}=InitVar';
 % MSurgeGains{i}=Surge_Gains';
@@ -26,39 +26,74 @@ load('Feb14_LakeTest_Compiled_Data_rev1.mat')
 figure(1);
 clf;
 
-for i=1:4
+for i=1:6
       time = MTime{i};
-      time = time(291:end)
-      kfhd = Mkfhd{i};
-      kfhd = kfhd(291:end)
-      yawcmd = Myawcmd{i};
+%       yawcmd = Myawcmd{i};
+%       kfhd = Mkfhd{i};
+     time = time(291:end)-29;
+     MTime{i} = time;
+     kfhd = 1*(abs(Mkfhd{i}));
+     kfhd = -1*(abs(Mkfhd{i})-114.5916);
+     kfhd = kfhd(291:end);
+     Mkfhd{i}=kfhd;
+     yawcmd = 1*(abs(Myawcmd{i}));
+     yawcmd = -1*(abs(Myawcmd{i})-114.5916);
+     yawcmd = yawcmd(291:end);
+     Myawcmd{i}=yawcmd;
       plot(time,kfhd,time,yawcmd)
       hold on
       grid on
 end
+
+xlabel('Time [s]')
+ylabel('Kingfisher Heading [deg]')
+title('Kingfisher Heading vs CMD')
+% legend('1','2','3','Location','sw')
+% ,'5','5cmd'
+grid on
+hold off
+% 
+figure(2);
+clf;
+for i=1:6
+      time = MTime{i};
+%       srgcmd = Msrgcmd{i};
+%       kfspd = Mkfspd{i};
+      MTime{i} = time;
+      kfspd= Mkfspd{i};
+      kfspd = kfspd(291:end);
+      Mkfspd{i}=kfspd;
+      srgcmd = Msrgcmd{i};
+      srgcmd = srgcmd(291:end);
+      Msrgcmd{i}=srgcmd;
+      hold on
+      plot(time,srgcmd,time,kfspd)
+      grid on
+end
+xlabel('Time [s]')
+ylabel('Speed [m/s]')
+title('Kingfisher Speed vs Command')
+% legend('1','2','Location','sw')
+hold off
+% % clear i kfhd kfspd srgcmd time yawcmd
+% save('Feb14_LakeTest_Compiled_Data_trimmed')
+
+
+
 % legend(['Kp=',num2str(MYawGains(1,1)),' Kd=',num2str(MYawGains(3,1))], ... 
 %     ['Kp=',num2str(Gain_Y(1,2)),', Ki=',num2str(Gain_Y(2,2)),', Kd=',num2str(Gain_Y(3,2))], ... 
 %     ['Kp=',num2str(Gain_Y(1,3)),', Ki=',num2str(Gain_Y(2,3)),', Kd=',num2str(Gain_Y(3,3))], ... 
 %     ['\bf Kp=',num2str(Gain_Y(1,4)),', Ki=',num2str(Gain_Y(2,4)),', Kd=',num2str(Gain_Y(3,4))], ...
 %     'Location','se')
-xlabel('Time [s]')
-ylabel('Kingfisher Heading [deg]')
-title('Kingfisher Heading vs CMD')
-legend('1','1cmd','2','2cmd','3','3cmd','4','4cmd','Location','sw')
-% ,'5','5cmd'
-grid on
-hold off
-% 
-% figure(2);
-% clf;
-% hold on
-% plot(time,srgcmd,time,kfspd)
-% xlabel('Time [s]')
-% ylabel('Speed [m/s]')
-% title('Kingfisher Speed vs Command')
-% legend('Command','Kingfisher','Location','se')
-% grid on
-% hold off
+
+
+
+
+% legend(['Kp=',num2str(MYawGains(1,1)),' Kd=',num2str(MYawGains(3,1))], ... 
+%     ['Kp=',num2str(Gain_Y(1,2)),', Ki=',num2str(Gain_Y(2,2)),', Kd=',num2str(Gain_Y(3,2))], ... 
+%     ['Kp=',num2str(Gain_Y(1,3)),', Ki=',num2str(Gain_Y(2,3)),', Kd=',num2str(Gain_Y(3,3))], ... 
+%     ['\bf Kp=',num2str(Gain_Y(1,4)),', Ki=',num2str(Gain_Y(2,4)),', Kd=',num2str(Gain_Y(3,4))], ...
+%     'Location','se')
 % 
 % figure(3);
 % subplot(2,2,1)
