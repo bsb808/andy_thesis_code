@@ -26,21 +26,25 @@ load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 figure(1);
 clf;
 
-for i=1:6
+for i=10:11
       time = MTime{i};
+      kfhd = abs(Mkfhd{i});
+      yawcmd = abs(Myawcmd{i});
 %       yawcmd = Myawcmd{i};
 %       kfhd = Mkfhd{i};
+
      time = time(291:end)-29;
      MTime{i} = time;
-     kfhd = 1*(abs(Mkfhd{i}));
-     kfhd = -1*(abs(Mkfhd{i})-114.5916);
+
+     kfhd = kfhd-yawcmd(1);
      kfhd = kfhd(291:end);
      Mkfhd{i}=kfhd;
-     yawcmd = 1*(abs(Myawcmd{i}));
-     yawcmd = -1*(abs(Myawcmd{i})-114.5916);
+
+     yawcmd = abs(yawcmd-yawcmd(1));
      yawcmd = yawcmd(291:end);
      Myawcmd{i}=yawcmd;
       plot(time,kfhd,time,yawcmd)
+%       plot(time,kfhd)
       hold on
       grid on
 end
@@ -48,18 +52,17 @@ end
 xlabel('Time [s]')
 ylabel('Kingfisher Heading [deg]')
 title('Kingfisher Heading vs CMD')
-% legend('1','2','3','Location','sw')
-% ,'5','5cmd'
+% legend('10','11','Location','sw')
+
 grid on
 hold off
 % 
 figure(2);
 clf;
-for i=1:6
+for i=10:11
       time = MTime{i};
 %       srgcmd = Msrgcmd{i};
 %       kfspd = Mkfspd{i};
-      MTime{i} = time;
       kfspd= Mkfspd{i};
       kfspd = kfspd(291:end);
       Mkfspd{i}=kfspd;
@@ -68,14 +71,16 @@ for i=1:6
       Msrgcmd{i}=srgcmd;
       hold on
       plot(time,srgcmd,time,kfspd)
+%       plot(time,kfspd)
       grid on
 end
 xlabel('Time [s]')
 ylabel('Speed [m/s]')
 title('Kingfisher Speed vs Command')
-% legend('1','2','Location','sw')
+% legend('10','11','Location','sw')
 hold off
-% % clear i kfhd kfspd srgcmd time yawcmd
+% 
+% clear i kfhd kfspd srgcmd time yawcmd
 % save('Feb14_LakeTest_Compiled_Data_trimmed')
 
 
