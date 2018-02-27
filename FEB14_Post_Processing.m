@@ -26,25 +26,25 @@ load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 figure(1);
 clf;
 
-for i=14:16
+for i=25:28
       time = MTime{i};
-      kfhd = abs(Mkfhd{i});
-      yawcmd = abs(Myawcmd{i});
-%       yawcmd = Myawcmd{i};
-%       kfhd = Mkfhd{i};
-
-     time = time(291:end)-29;
-     MTime{i} = time;
-
-     kfhd = kfhd-yawcmd(1);
-     kfhd = kfhd(291:end);
-     Mkfhd{i}=kfhd;
-
-     yawcmd = abs(yawcmd-yawcmd(1));
-     yawcmd = yawcmd(291:end);
-     Myawcmd{i}=yawcmd;
-      plot(time,kfhd,time,yawcmd)
-%       plot(time,kfhd)
+%       kfhd = abs(Mkfhd{i});
+%       yawcmd = abs(Myawcmd{i});
+      yawcmd = Myawcmd{i};
+      kfhd = Mkfhd{i};
+% 
+%      time = time(291:end)-29;
+%      MTime{i} = time;
+% 
+%      kfhd = kfhd-yawcmd(1);
+%      kfhd = kfhd(291:end);
+%      Mkfhd{i}=kfhd;
+% 
+%      yawcmd = abs(yawcmd-yawcmd(1));
+%      yawcmd = yawcmd(291:end);
+%      Myawcmd{i}=yawcmd;
+%       plot(time,kfhd,time,yawcmd)
+      plot(time,kfhd)
       hold on
       grid on
 end
@@ -52,26 +52,26 @@ end
 xlabel('Time [s]')
 ylabel('Kingfisher Heading [deg]')
 title('Kingfisher Heading vs CMD')
-% legend('10','11','Location','sw')
+% legend('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',...
+%     '16','17','18','19','20','21','22','23','24','25','26','27','28','Location','se')
 
 grid on
 hold off
 % 
 figure(2);
 clf;
-for i=14:16
+for i=25:28
       time = MTime{i};
-%       srgcmd = Msrgcmd{i};
-%       kfspd = Mkfspd{i};
-      kfspd= Mkfspd{i};
-      kfspd = kfspd(291:end);
-      Mkfspd{i}=kfspd;
       srgcmd = Msrgcmd{i};
-      srgcmd = srgcmd(291:end);
-      Msrgcmd{i}=srgcmd;
+      kfspd = Mkfspd{i};
+%       kfspd = kfspd(291:end);
+%       Mkfspd{i}=kfspd;
+%       srgcmd = Msrgcmd{i};
+%       srgcmd = srgcmd(291:end);
+%       Msrgcmd{i}=srgcmd;
       hold on
       plot(time,srgcmd,time,kfspd)
-      plot(time,kfspd)
+%       plot(time,kfspd)
       grid on
 end
 xlabel('Time [s]')
@@ -79,9 +79,9 @@ ylabel('Speed [m/s]')
 title('Kingfisher Speed vs Command')
 % legend('10','11','Location','sw')
 hold off
-% 
-% clear i kfhd kfspd srgcmd time yawcmd
-% save('Feb14_LakeTest_Compiled_Data_trimmed')
+% % 
+clear i kfhd kfspd srgcmd time yawcmd ans
+save('Feb14_LakeTest_Compiled_Data_trimmed')
 
 
 
