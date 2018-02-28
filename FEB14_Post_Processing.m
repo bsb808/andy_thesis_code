@@ -4,7 +4,7 @@
 %%
 % Cell Array Structure Creation for Data Runs
 
-load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
+% load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 
 % MInitVar{i}=InitVar';
 % MSurgeGains{i}=Surge_Gains';
@@ -23,67 +23,109 @@ load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 % rg = 255;
 % C = {[186/rg 18/rg 18/rg],[22/rg 135/rg 0/rg],[252/rg 172/rg 0/rg],[0/rg 29/rg 255/rg]}; % Plot Color Array
 
-figure(1);
-clf;
+% figure(1);
+% clf;
+% 
+% for i=1:16
+%       time = MTime{i};
+% %       kfhd = abs(Mkfhd{i});
+% %       yawcmd = abs(Myawcmd{i});
+%       yawcmd = Myawcmd{i};
+%       kfhd = Mkfhd{i};
+% % 
+% %      time = time(291:end)-29;
+% %      MTime{i} = time;
+% % 
+% %      kfhd = kfhd-yawcmd(1);
+% %      kfhd = kfhd(291:end);
+% %      Mkfhd{i}=kfhd;
+% % 
+% %      yawcmd = abs(yawcmd-yawcmd(1));
+% %      yawcmd = yawcmd(291:end);
+% %      Myawcmd{i}=yawcmd;
+% %       plot(time,kfhd,time,yawcmd)
+%       plot(time,kfhd)
+%       hold on
+%       grid on
+% end
+% 
+% xlabel('Time [s]')
+% ylabel('Kingfisher Heading [deg]')
+% title('Kingfisher Heading vs CMD')
+% % legend('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',...
+% %     '16','17','18','19','20','21','22','23','24','25','26','27','28','Location','se')
+% 
+% grid on
+% hold off
+% % 
+% figure(2);
+% clf;
+% for i=1:16
+%       time = MTime{i};
+%       srgcmd = Msrgcmd{i};
+%       kfspd = Mkfspd{i};
+% %       kfspd = kfspd(291:end);
+% %       Mkfspd{i}=kfspd;
+% %       srgcmd = Msrgcmd{i};
+% %       srgcmd = srgcmd(291:end);
+% %       Msrgcmd{i}=srgcmd;
+%       hold on
+%       plot(time,srgcmd,time,kfspd)
+% %       plot(time,kfspd)
+%       grid on
+% end
+% xlabel('Time [s]')
+% ylabel('Speed [m/s]')
+% title('Kingfisher Speed vs Command')
+% legend('10','11','Location','sw')
+hold off
+% % 
 
-for i=1:16
-      time = MTime{i};
-%       kfhd = abs(Mkfhd{i});
-%       yawcmd = abs(Myawcmd{i});
-      yawcmd = Myawcmd{i};
-      kfhd = Mkfhd{i};
-% 
-%      time = time(291:end)-29;
-%      MTime{i} = time;
-% 
-%      kfhd = kfhd-yawcmd(1);
-%      kfhd = kfhd(291:end);
-%      Mkfhd{i}=kfhd;
-% 
-%      yawcmd = abs(yawcmd-yawcmd(1));
-%      yawcmd = yawcmd(291:end);
-%      Myawcmd{i}=yawcmd;
-%       plot(time,kfhd,time,yawcmd)
-      plot(time,kfhd)
-      hold on
-      grid on
+load('Feb14_LakeTest_Compiled_Data_Surgeint.mat')
+
+for i=17:29
+MTime{1,(i)}=MTime{1,(i+1)};
+end
+for i=25:29
+MTime{1,(i)}=MTime{1,(i+1)};
+end
+for i=29:30
+MTime{1,(i)}=[];
 end
 
-xlabel('Time [s]')
-ylabel('Kingfisher Heading [deg]')
-title('Kingfisher Heading vs CMD')
-% legend('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',...
-%     '16','17','18','19','20','21','22','23','24','25','26','27','28','Location','se')
+figure(3);
+hold on
 
-grid on
-hold off
-% 
-figure(2);
-clf;
-for i=1:16
+for i=26:29
       time = MTime{i};
-      srgcmd = Msrgcmd{i};
-      kfspd = Mkfspd{i};
+      surgeint = Msurgeint{i};
+%       time = time(291:end)-29;
+% %       MTime{i} = time;
+
+%       surgeint = surgeint(291:end);
+%       Msurgeint{i}=surgeint;
 %       kfspd = kfspd(291:end);
 %       Mkfspd{i}=kfspd;
 %       srgcmd = Msrgcmd{i};
 %       srgcmd = srgcmd(291:end);
 %       Msrgcmd{i}=srgcmd;
       hold on
-      plot(time,srgcmd,time,kfspd)
-%       plot(time,kfspd)
-      grid on
+      plot(time,surgeint)
 end
+
+legend('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15',...
+    '16','17','18','19','20','21','22','23','24','25','26','27','28','Location','se')
+
 xlabel('Time [s]')
-ylabel('Speed [m/s]')
-title('Kingfisher Speed vs Command')
-% legend('10','11','Location','sw')
-hold off
-% % 
-% clear i kfhd kfspd srgcmd time yawcmd ans
+ylabel('Integrator Effect]')
+title('Surge Integrator vs Time')
+% legend('Integrator','Location','se')
+grid on
+
+% clear i MinitVar Mkfhd Mkfspd Mportcmd Msrgcmd Mstbdcmd MSurgeGains MTime Myawcmd MYawGains surgeint time
+
+% load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 % save('Feb14_LakeTest_Compiled_Data_trimmed')
-
-
 
 % legend(['Kp=',num2str(MYawGains(1,1)),' Kd=',num2str(MYawGains(3,1))], ... 
 %     ['Kp=',num2str(Gain_Y(1,2)),', Ki=',num2str(Gain_Y(2,2)),', Kd=',num2str(Gain_Y(3,2))], ... 
@@ -146,30 +188,7 @@ hold off
 % grid on
 % 
 % 
-% figure(5);
-% hold on
-% plot(time,surgeint)
-% xlabel('Time [s]')
-% ylabel('Integrator Effect]')
-% title('Surge Integrator vs Time')
-% legend('Integrator','Location','se')
-% grid on
-% 
-% for i=1:length(C)
-%       Kps=Gain_S(1,i);Kis=Gain_S(2,i);Kds=Gain_S(3,i);
-%       j=1.533;
-%       Kpy=Gain_Y(1,k);Kiy=Gain_Y(2,k);Kdy=Gain_Y(3,k);
-%       S{k}=stepinfo(yaw,time);
-% %             rtime{k}=S{1,k}.RiseTime;
-% %             stime{k}=S{1,k}.SettlingTime;
-% %             os{k}=S{1,k}.Overshoot;
-% %             sserr{k}=(ss_des-yaw(end));
-%             tc{k} = time;
-%             j = j-(k/12);
-%             plot(time,yaw,'Color',C{k},'LineWidth',j)
-%             hold on
-%             grid on
-% end
+
 % % 
 % % Ch = [rtime' stime' os' sserr'];
 % 
