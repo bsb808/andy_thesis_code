@@ -4,7 +4,7 @@
 %%
 % Cell Array Structure Creation for Data Runs
 
-load('Feb28_LakeTest_Compiled_Data_trimmed.mat')
+load('Feb02_LakeTest_Compiled_Data_trimmed.mat')
 
 % MInitVar{i}=InitVar';
 % MSurgeGains{i}=Surge_Gains';
@@ -60,32 +60,50 @@ load('Feb28_LakeTest_Compiled_Data_trimmed.mat')
 % % 
 figure(2);
 clf;
-for i=1:31
+for i=1:25
     
       time = MTime{i}; t = length(time);
-%       surgeint = Msurgeint{i}; 
-%       s = length(surgeint); x=(s-t)+1;
-%       surgeint = surgeint(x:end);
       srgcmd = Msrgcmd{i};
       kfspd = Mkfspd{i};
-      
-%       kfspd = kfspd(581:end);
-%       time = time(581:end)-29;
-%       srgcmd = srgcmd(581:end);
+%       kfhd = Mkfhd{i};
+%       yawcmd = Myawcmd{i};
+%       surgeint = Msurgeint{i};
+%       s = length(surgeint); x=(s-t)+1;
+%       portcmd = Mportcmd{i}; 
+%       s = length(portcmd); x=(s-t)+1;
+%       stbdcmd = Mstbdcmd{i}; 
+
+%       surgeint = surgeint(x:end);
+%       stbdcmd = stbdcmd(x:end);
+%       portcmd = portcmd(x:end);
+%       kfspd = kfspd(191:end);
+%       time = time(191:end)-19;
+%       srgcmd = srgcmd(191:end);
 % %       
 %       Msurgeint{i}= surgeint;
-%       Mkfspd{i}= kfspd;
-%       MTime{i} = time;
+      Mkfspd{i}= kfspd;
+      MTime{i} = time;
+      Msrgcmd{i} = srgcmd;
+%       Mportcmd{i} = portcmd;
+%       Mstbdcmd{i} = stbdcmd;
 
-      plot(time, kfspd, time, srgcmd)
+%       subplot(3,1,1)
+%       plot(time, yawcmd,time,kfhd)
+%       hold on
+%       subplot(3,1,2)
+%       plot(time, kfspd, time, srgcmd)
+%       hold on
+%       subplot(3,1,3)
+%       plot(time,portcmd,time,stbdcmd)
+%       hold on
+      plot(time,kfspd,time,srgcmd)
       hold on
-%       plot(time,kfspd)
       grid on
 end
 xlabel('Time [s]')
 ylabel('Speed [m/s]')
 title('Kingfisher Speed vs Command')
-% save('Feb28_LakeTest_Compiled_Data_trimmed')
+% save('Feb02_LakeTest_Compiled_Data_trimmed')
 % legend('10','11','Location','sw')
 
 % % % 
