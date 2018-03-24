@@ -60,7 +60,7 @@ load('Feb28_LakeTest_Compiled_Data_trimmed.mat')
 % % 
 figure(2);
 clf;
-for i=27:28
+for i=1:31
     
       time = MTime{i}; t = length(time);
       srgcmd = Msrgcmd{i};
