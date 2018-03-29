@@ -4,7 +4,7 @@
 %%
 % Cell Array Structure Creation for Data Runs
 clear all
-load('Feb28_LakeTest_Compiled_Data_trimmed.mat')
+load('Feb14_LakeTest_Compiled_Data_trimmed.mat')
 
 % MInitVar{i}=InitVar';
 % MSurgeGains{i}=Surge_Gains';
@@ -60,26 +60,26 @@ load('Feb28_LakeTest_Compiled_Data_trimmed.mat')
 % % 
 figure(2);
 clf;
-for i=1:31
+for i=7:7
     
       time = MTime{i}; t = length(time);
       srgcmd = Msrgcmd{i};
       kfspd = Mkfspd{i};
-%       kfhd = Mkfhd{i};
-%       yawcmd = Myawcmd{i};
+      kfhd = Mkfhd{i};
+      yawcmd = Myawcmd{i};
 %       surgeint = Msurgeint{i};
 %       s = length(surgeint); x=(s-t)+1;
       portcmd = Mportcmd{i}; 
 %       s = length(portcmd); x=(s-t)+1;
       stbdcmd = Mstbdcmd{i}; 
       a = MInitVar{i}';
-      x = a(2);
-      ss_des = x;
-      S{i}=stepinfo(kfspd,time,x);
+%       x = a(2);
+%       ss_des = 45;
+      S{i}=stepinfo(kfhd,time,45);
       rtime{i}=S{1,i}.RiseTime';
       stime{i}=S{1,i}.SettlingTime';
       os{i}=S{1,i}.Overshoot';
-      sserr{i}=(ss_des-mean(kfspd((50:end))))';
+      sserr{i}=(45-mean(kfhd((50:end))))';
 %       surgeint = surgeint(x:end);
 %       stbdcmd = stbdcmd(x:end);
 %       portcmd = portcmd(x:end);
@@ -94,15 +94,17 @@ for i=1:31
 %       Mportcmd{i} = portcmd;
 %       Mstbdcmd{i} = stbdcmd;
 
-%       subplot(3,1,1)
-%       plot(time, yawcmd,time,kfhd)
-%       hold on
-%       subplot(2,1,1)
-      plot(time, kfspd)
+      subplot(2,1,1)
+      plot(time, yawcmd,time,kfhd)
+            legend('1','2','3','4','5','6','Location','se')
+            grid on
+            xlim([0 10])
+      hold on
+      subplot(2,1,2)
+      plot(time, kfspd,time, srgcmd)
       hold on
       grid on
-      % save('Feb02_LakeTest_Compiled_Data_trimmed')
-%       legend('1','2','3','4','5','6','Location','sw')
+
 %       xlim([0 8])
 %       subplot(2,1,2)
 %       plot(time,portcmd,time,stbdcmd)
